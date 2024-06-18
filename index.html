@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>FARAI TANEKHA: JS Array Assessment</title>
+</head>
+<body>
+    <div id="main-container">
+        <!-- <label for="user-email">User email address:</label> -->
+        <form id="user-email-address" action="#">
+            <input id="user-email" type="email" title="input user's email address here" placeholder="User email: xyx@gmail.com"/>
+            <button id="submit-user-email-button" type="submit">Submit</button>
+        </form>
+        <div id="current-image-container">
+            <img id="current-image" src="" alt="random image" title="random image"/>
+        </div>
+        <div id="user-actions">
+            <button id="fetch-random-image-button" title="display random image">Fetch Random Image</button>
+            <button id="add-random-image-to-collection-button" title="add image to my collection" disabled>Add Image to my collection</button>
+        </div>
+        <div id="current-user-image-collection-container"></div>
+    </div>
+    <div id="user-image-collection"></div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
