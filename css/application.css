@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #1a170e;
 }
 
 div#main-container {
@@ -65,14 +65,22 @@ div#main-container button#add-random-image-to-collection-button:hover {
   background-color: #5e5130;
 }
 
-div#user-image-collection {
-  width: 80vh;
+div#current-user-image-collection-container {
+  width: 60vw;
   margin: auto;
-  border: solid 5px black;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  background-color: rgb(60, 52, 31);
 }
-div#user-image-collection img {
-  max-width: 150px;
+div#current-user-image-collection-container img {
+  max-width: 100px;
   height: auto;
+}
+div#current-user-image-collection-container img:hover {
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=application.css.map */

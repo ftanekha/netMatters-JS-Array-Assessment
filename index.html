@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="application.css">
+    <link rel="stylesheet" href="css/application.css">
     <title>FARAI TANEKHA: JS Array Assessment</title>
 </head>
 <body>
@@ -14,15 +14,14 @@
             <button id="submit-user-email-button" type="submit">Submit</button>
         </form>
         <div id="current-image-container">
-            <img id="current-image" src="" alt="random image" title="random image"/>
+            <img id="current-image" src="https://fastly.picsum.photos/id/314/300/300.jpg?hmac=t3TWJyfgrprg3SfM_AwzKHLjUsysY_47HrDAsVKrw2Q" alt="random image" title="random image"/>
         </div>
         <div id="user-actions">
-            <button id="fetch-random-image-button" title="display random image">Fetch Random Image</button>
-            <button id="add-random-image-to-collection-button" title="add image to my collection" disabled>Add Image to my collection</button>
+            <button id="fetch-random-image-button" type="button" title="display random image">Display Random Image</button>
+            <button id="add-random-image-to-collection-button" type="button" title="add image to my collection" disabled>Add Image to my collection</button>
         </div>
-        <div id="current-user-image-collection-container"></div>
     </div>
-    <div id="user-image-collection"></div>
+    <div id="current-user-image-collection-container"></div>
     <script type="module" src="main.js"></script>
 </body>
 </html>

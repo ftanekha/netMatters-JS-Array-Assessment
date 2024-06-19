@@ -1,5 +1,5 @@
 *{box-sizing: border-box;}
-body{background-color: black;}
+body{background-color: darken(rgb(60,52,31), 10%);}
 div#main-container{
     width: 300px;
     margin: 50px auto;
@@ -63,12 +63,20 @@ div#main-container{
     }
 }
 
-div#user-image-collection{
-    width:80vh;
+div#current-user-image-collection-container{
+    width:60vw;
     margin: auto;
-    border: solid 5px black;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    background-color: rgb(60,52,31);
     img{
-        max-width: 150px;
+        max-width: 100px;
         height: auto;
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 }
