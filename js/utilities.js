@@ -6,6 +6,18 @@ function fetchRandomImage(){
     .catch(err => console.error(err))
 }
 
+function isUserEmailAddressValid(userEmailAddress){
+    /*checks*/
+    //user email address:
+    //comprises alphanumeric characters (dot excluded), and is 6 to 20 characters long (e.g. ghxnyab234)
+    //followed by the @ symbol
+    //followed by another series of alphanumeric characters, with a dot at the end (e.g. google.com or outlook.com)
+    const regex = /^[\w-\.]{6,25}@([\w-]+\.)+[\w-]{2,4}$/g
+    const result = regex.test(userEmailAddress)
+    //returns a boolean value
+    return result
+}
+
 function displayImageInMainFrame(target){
     const imageCurrentlyDisplayed = document.querySelector('#current-image')
     imageCurrentlyDisplayed.src = target.src
@@ -39,4 +51,10 @@ function displayUserCollection(currentUserImageCollection){
     )
 }
 
-export {fetchRandomImage, addRandomImageToCollection, displayUserCollection, displayImageInMainFrame}
+function clearCurrentUserCollectionDisplay(){
+    const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
+    currentUserImageCollectionContainer.innerHTML = ''
+    alert('cleared')
+}
+
+export {fetchRandomImage, isUserEmailAddressValid ,addRandomImageToCollection, displayUserCollection, clearCurrentUserCollectionDisplay}
