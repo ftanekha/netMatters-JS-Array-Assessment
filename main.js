@@ -56,7 +56,6 @@ submitUserEmailButton.addEventListener(
             }
             //check there's no other user in the current session
             if(currentUser.email){
-                console.log('old user', currentUser.email)
                 //there is another user (email address in session) already
                 //update the current user's collection in allUsers array
                 updateCurrentUserInfo(allUsers, currentUser)
@@ -68,7 +67,8 @@ submitUserEmailButton.addEventListener(
             
             //switch to new user
             currentUser.email = userEmail.value
-            console.log('new user', currentUser.email)
+            //display user name
+            document.querySelector('p#current-user-identifier').textContent = currentUser.email
             //clear input field
             document.querySelector('#user-email').value = ''
             //check if current user already exists in saved users

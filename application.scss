@@ -1,19 +1,18 @@
-*{box-sizing: border-box; transition: .2s;}
-body{background-color: darken(rgb(60,52,31), 10%);}
+*{box-sizing: border-box; transition: .2s; color: azure;}
+body{
+    background-color: azure;
+    font-family: "Roboto Condensed", sans-serif;
+}
 div#main-container{
     width: 300px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
-    border: gray 2px solid;
-    background-color: rgb(60,52,31);
+    letter-spacing: 2;
     *{
         width: 100%; 
         color: azure;
     }
-    // label{
-    //     color: black !important;
-    // }
     form{
         display: flex;
         input{
@@ -26,55 +25,68 @@ div#main-container{
             }
         }
         button{
+            font-size: .8rem;
             width: 25%
         }
     }
-    #current-image-container{
-        border: black 2px solid;
-        background-color: rgb(60,52,31);
+    div#current-image-container{
         height: 300px;
-        image{
+        img{
             max-height: 300px;
         }
     }
     button{
         width: 100%;
         padding: 10px;
-        background-color: rgb(0,73,83);
-        color: white;
-        font-size: 1rem;
+        font-size: .8rem;
         border: none;
         outline: none;
         cursor: pointer;
-        &:hover{
-            background-color: lighten(rgb(0,73,83), 10%);
-        }
+        background-color: rgb(60,52,31);
+            &:hover{
+                background-color: lighten(rgb(60,52,31), 10%);
+            }
         &#add-random-image-to-collection-button{
-            // margin-top: 5px;
-            background-color: rgb(60,52,31);
+            
+            background-color: rgb(0,73,83);
+            &:hover{
+                background-color: lighten(rgb(0,73,83), 10%);
+            }
             &:disabled{
                 opacity: 0.6;
                 cursor: not-allowed;
             }
-            &:hover{
-                background-color: lighten(rgb(60,52,31), 10%);
-            }
+        }
+    }
+    @media (min-width: 768px) {
+        width: 500px;
+        div#current-image-container{
+            padding: 0 100px;
+            background-color:rgb(26,36,33);
         }
     }
 }
-
+p#current-user-identifier{
+    width: 200px;
+    margin: 0 auto 20px auto;
+    text-decoration: underline solid 2px;
+    color: black;
+    font-family: "Playwrite IT Moderna", cursive;
+}
 div#current-user-image-collection-container{
     width:60vw;
     margin: auto;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: space-evenly;
-    background-color: rgb(60,52,31);
     img{
         max-width: 100px;
         height: auto;
+        box-shadow: lightgray 2px 2px 2px,
+                    azure 2px 2px 2px;
+        border-top-right-radius: 5px;
         &:hover{
             transform: scale(1.2);
         }
