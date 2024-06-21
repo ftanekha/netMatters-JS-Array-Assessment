@@ -1,5 +1,7 @@
+const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
+
 function fetchRandomImage(){
-    const randomImage = document.querySelector('#current-image-container img')
+    const randomImage = document.querySelector('img#current-image')
 
     fetch('https://picsum.photos/300/300')
     .then(img => randomImage.src = img.url)
@@ -18,9 +20,21 @@ function isUserEmailAddressValid(userEmailAddress){
     return result
 }
 
-function displayImageInMainFrame(target){
+function updateCurrentUserInfo(allUsers, currentUser ){
+    const allUserEmails = allUsers.map(user => user.email)
+    //if user exists
+    if(allUserEmails.includes(currentUser.email)){
+        //find user in allUsers array
+        const userIndexInAllUsersArray = allUserEmails.indexOf(currentUser.email)
+        let currentUserImageCollection = allUsers[userIndexInAllUsersArray].imageCollection
+        //update current user image collection in allUsers array
+        currentUserImageCollection = [...currentUserImageCollection, ...currentUser.imageCollection]
+    }
+}
+
+function displayImageInMainFrame(clickedImage){
     const imageCurrentlyDisplayed = document.querySelector('#current-image')
-    imageCurrentlyDisplayed.src = target.src
+    imageCurrentlyDisplayed.src = clickedImage.src
 }
 
 function createImage(src){
@@ -28,33 +42,30 @@ function createImage(src){
     image.src = src
     image.alt = 'random image'
     image.title = image.alt
-    image.classList += 'random image'
+    image.classList += `random image`
     image.addEventListener(
         'click', ({target})=> displayImageInMainFrame(target)
     )
     return image
 }
 
-function addRandomImageToCollection(imageSrc, collectionName){
+function addRandomImageToCollection(imageSrc, userImageCollection){
     //add new image to user's collection
-    collectionName.push(imageSrc)
-    //display new image with rest of current user collection
-    const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
-    currentUserImageCollectionContainer.appendChild(createImage(imageSrc))
+    userImageCollection.push(imageSrc)
+    //display new image at the front of current user collection
+    currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(imageSrc)))
 }
 
-function displayUserCollection(currentUserImageCollection){
-    const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
+function displayUserNewCollection(currentUser){
     //display user's collection
-    currentUserImageCollection.forEach( imageSrc =>
+    currentUser['imageCollection'].forEach( imageSrc =>
         currentUserImageCollectionContainer.appendChild(createImage(imageSrc))
     )
 }
 
 function clearCurrentUserCollectionDisplay(){
-    const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
-    currentUserImageCollectionContainer.innerHTML = ''
-    alert('cleared')
+    currentUserImageCollectionContainer.replaceChildren()
+    console.log('cleared')
 }
 
-export {fetchRandomImage, isUserEmailAddressValid ,addRandomImageToCollection, displayUserCollection, clearCurrentUserCollectionDisplay}
+export {fetchRandomImage, isUserEmailAddressValid , updateCurrentUserInfo, addRandomImageToCollection, displayUserNewCollection, clearCurrentUserCollectionDisplay}

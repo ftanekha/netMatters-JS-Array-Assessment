@@ -1,4 +1,4 @@
-*{box-sizing: border-box;}
+*{box-sizing: border-box; transition: .2s;}
 body{background-color: darken(rgb(60,52,31), 10%);}
 div#main-container{
     width: 300px;
@@ -70,7 +70,7 @@ div#current-user-image-collection-container{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: rgb(60,52,31);
     img{
         max-width: 100px;
