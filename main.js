@@ -14,7 +14,12 @@ const submitUserEmailButton = document.querySelector('#submit-user-email-button'
 const addRandomImageToCollectionButton = document.querySelector('#add-random-image-to-collection-button')
 //
 const currentImage = document.querySelector('#current-image')
-
+//
+addRandomImageToCollectionButton.addEventListener(
+    'click', ()=>{
+        addRandomImageToCollection(currentImage.src, currentUser.imageCollection)
+    }
+)
 /*store all user info in local storage for persistance*/
 //check users exist in local storage
 const savedUsers = localStorage.getItem('allUsers')
@@ -25,12 +30,7 @@ let allUsers = JSON.parse(savedUsers) || []
 let currentUser = {
     imageCollection: []
 }
-//
-addRandomImageToCollectionButton.addEventListener(
-    'click', ()=>{
-        addRandomImageToCollection(currentImage.src, currentUser.imageCollection)
-    }
-)
+
 //submit, validate and (if valid) store user email
 submitUserEmailButton.addEventListener(
     'click',
@@ -63,8 +63,7 @@ submitUserEmailButton.addEventListener(
                 localStorage.setItem('allUsers', JSON.stringify(allUsers))
                 //remove previous user's collection from DOM
                 clearCurrentUserCollectionDisplay()
-            }
-            
+            } 
             //switch to new user
             currentUser.email = userEmail.value
             //display user name

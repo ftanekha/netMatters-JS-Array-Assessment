@@ -83,7 +83,7 @@ p#current-user-identifier {
 }
 
 div#current-user-image-collection-container {
-  width: 60vw;
+  width: 80vw;
   margin: auto;
   padding: 20px;
   display: flex;
@@ -92,13 +92,35 @@ div#current-user-image-collection-container {
   justify-content: space-evenly;
 }
 div#current-user-image-collection-container img {
-  max-width: 100px;
+  max-width: 60px;
   height: auto;
   box-shadow: lightgray 2px 2px 2px, azure 2px 2px 2px;
   border-top-right-radius: 5px;
 }
 div#current-user-image-collection-container img:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
+}
+@media (min-width: 480px) {
+  div#current-user-image-collection-container {
+    width: 70vw;
+  }
+  div#current-user-image-collection-container img {
+    max-width: 80px;
+  }
+  div#current-user-image-collection-container img:hover {
+    transform: scale(1.3);
+  }
+}
+@media (min-width: 768px) {
+  div#current-user-image-collection-container {
+    width: 60vw;
+  }
+  div#current-user-image-collection-container img {
+    max-width: 100px;
+  }
+  div#current-user-image-collection-container img:hover {
+    transform: scale(1.4);
+  }
 }
 
 /*# sourceMappingURL=application.css.map */
