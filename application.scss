@@ -1,3 +1,4 @@
+html{overflow-x: hidden;}
 *{box-sizing: border-box; transition: .2s; color: azure;}
 body{
     background-color: azure;
@@ -26,7 +27,7 @@ div#main-container{
         }
         button{
             font-size: .8rem;
-            width: 25%
+            width: 24%;
         }
     }
     div#current-image-container{
@@ -84,9 +85,10 @@ div#current-user-image-collection-container{
     img{
         max-width: 60px;
         height: auto;
-        box-shadow: lightgray 2px 2px 2px,
-                    azure 2px 2px 2px;
+        box-shadow: black 2px 2px 2px,
+            azure 2px 2px 2px 2px;       
         border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
         &:hover{
             transform: scale(1.5);
         }

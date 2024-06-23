@@ -86,7 +86,7 @@ submitUserEmailButton.addEventListener(
                 //clear the user image collection array
                 currentUser.imageCollection = []
                 //display new user's collection (empty at first)
-                displayUserNewCollection(currentUser)
+                if(currentUser.imageCollection.length) displayUserNewCollection(currentUser)
             }
         }
     }

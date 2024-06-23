@@ -1,3 +1,7 @@
+html {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
   transition: 0.2s;
@@ -34,7 +38,7 @@ div#main-container form input:focus {
 }
 div#main-container form button {
   font-size: 0.8rem;
-  width: 25%;
+  width: 24%;
 }
 div#main-container div#current-image-container {
   height: 300px;
@@ -94,8 +98,9 @@ div#current-user-image-collection-container {
 div#current-user-image-collection-container img {
   max-width: 60px;
   height: auto;
-  box-shadow: lightgray 2px 2px 2px, azure 2px 2px 2px;
+  box-shadow: black 2px 2px 2px, azure 2px 2px 2px 2px;
   border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 div#current-user-image-collection-container img:hover {
   transform: scale(1.5);

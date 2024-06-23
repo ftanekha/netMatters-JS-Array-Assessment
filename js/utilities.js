@@ -41,7 +41,6 @@ function createImage(src){
     const image = document.createElement('img')
     image.src = src
     image.alt = 'random image'
-    image.title = image.alt
     image.classList += `random image`
     image.addEventListener(
         'click', ({target})=> displayImageInMainFrame(target)
