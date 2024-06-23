@@ -13,45 +13,44 @@ body {
   background-color: azure;
   font-family: "Montserrat", sans-serif;
 }
-
-div#main-container {
+body div#main-container {
   width: 300px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
   letter-spacing: 2;
 }
-div#main-container * {
+body div#main-container * {
   width: 100%;
   color: azure;
 }
-div#main-container form {
+body div#main-container form {
   display: flex;
   background-color: rgb(26, 36, 33);
+  padding: 0 !important;
 }
-div#main-container form input {
+body div#main-container form input {
   padding: 30px 20px;
   background-color: rgb(26, 36, 33);
   border: none;
   border-radius: 0 !important;
   outline: none;
 }
-div#main-container form input:focus {
+body div#main-container form input:focus {
   background-color: #2f423c;
 }
-div#main-container form button {
+body div#main-container form button {
   font-size: 0.8rem;
-  width: 24%;
+  width: 24.5%;
 }
-div#main-container div#current-image-container {
+body div#main-container div#current-image-container {
   height: 300px;
-  padding: 0 !important;
 }
-div#main-container div#current-image-container img {
+body div#main-container div#current-image-container img {
   pointer-events: none;
   max-height: 300px;
 }
-div#main-container button {
+body div#main-container button {
   width: 100%;
   padding: 10px;
   font-size: 0.8rem;
@@ -63,38 +62,42 @@ div#main-container button {
   color: #c88937;
   font-weight: 600;
 }
-div#main-container button:hover {
+body div#main-container button:hover {
   background-color: #5e5130;
+  color: rgb(231, 218, 193);
 }
-div#main-container button#add-random-image-to-collection-button {
+body div#main-container button#add-random-image-to-collection-button {
   background-color: rgb(0, 73, 83);
+  padding: 0.1rem 0 0.3rem 0;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
-div#main-container button#add-random-image-to-collection-button:hover {
+body div#main-container button#add-random-image-to-collection-button:hover {
   background-color: #007686;
 }
-div#main-container button#add-random-image-to-collection-button:disabled {
+body div#main-container button#add-random-image-to-collection-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 @media (min-width: 768px) {
-  div#main-container {
+  body div#main-container {
     width: 500px;
   }
-  div#main-container div#current-image-container {
+  body div#main-container div#current-image-container {
     padding: 0 100px;
     background-color: rgb(26, 36, 33);
   }
 }
-
-p#current-user-identifier {
+body p#current-user-identifier {
   width: 300px;
   margin: 0 auto 20px auto;
   color: rgb(60, 52, 31);
   font-family: "Playwrite IT Moderna", cursive;
   font-weight: 900;
+  text-align: center;
 }
-
-div#current-user-image-collection-container {
+body div#current-user-image-collection-container {
   width: 80vw;
   margin: auto;
   padding: 20px;
@@ -103,35 +106,35 @@ div#current-user-image-collection-container {
   gap: 10px;
   justify-content: space-evenly;
 }
-div#current-user-image-collection-container img {
+body div#current-user-image-collection-container img {
   max-width: 60px;
   height: auto;
   box-shadow: rgb(51, 54, 69) 2px 2px 2px, azure 2px 2px 2px 2px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-div#current-user-image-collection-container img:hover {
+body div#current-user-image-collection-container img:hover {
   transform: scale(1.5);
 }
 @media (min-width: 480px) {
-  div#current-user-image-collection-container {
+  body div#current-user-image-collection-container {
     width: 70vw;
   }
-  div#current-user-image-collection-container img {
+  body div#current-user-image-collection-container img {
     max-width: 80px;
   }
-  div#current-user-image-collection-container img:hover {
+  body div#current-user-image-collection-container img:hover {
     transform: scale(1.3);
   }
 }
 @media (min-width: 768px) {
-  div#current-user-image-collection-container {
+  body div#current-user-image-collection-container {
     width: 60vw;
   }
-  div#current-user-image-collection-container img {
+  body div#current-user-image-collection-container img {
     max-width: 100px;
   }
-  div#current-user-image-collection-container img:hover {
+  body div#current-user-image-collection-container img:hover {
     transform: scale(1.4);
   }
 }

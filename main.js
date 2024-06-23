@@ -14,6 +14,8 @@ const submitUserEmailButton = document.querySelector('#submit-user-email-button'
 const addRandomImageToCollectionButton = document.querySelector('#add-random-image-to-collection-button')
 //
 const currentImage = document.querySelector('#current-image')
+//display image source when user double clicks on the screen
+document.body.addEventListener('dblclick', ()=> alert(currentImage.src))
 //
 addRandomImageToCollectionButton.addEventListener(
     'click', ()=>{
@@ -30,7 +32,6 @@ let allUsers = JSON.parse(savedUsers) || []
 let currentUser = {
     imageCollection: []
 }
-
 //submit, validate and (if valid) store user email
 submitUserEmailButton.addEventListener(
     'click',
@@ -40,10 +41,12 @@ submitUserEmailButton.addEventListener(
         if(!isUserEmailAddressValid(userEmail.value)){
             //disable/keep disabled the 'add image to collection button'
             addRandomImageToCollectionButton.disabled = true
+            submitUserEmailButton.textContent = '🔒'
+            addRandomImageToCollectionButton.textContent = '😴'
             //clear input field
             document.querySelector('#user-email').value = ''
             return alert(
-                `Invalid email address! Email address must be 6 - 20 characters long,
+                `Invalid email address! Email address must be 6 - 30 characters long,
                 No meta-characters, such as ? - + #...`
             )
         }else if(userEmail.value === currentUser.email){
@@ -53,6 +56,7 @@ submitUserEmailButton.addEventListener(
         }else{
             //
             submitUserEmailButton.textContent = '🔓'
+            addRandomImageToCollectionButton.textContent = '🤗'
             //enable the 'add image to collection button'
             if(addRandomImageToCollectionButton.disabled){
                 addRandomImageToCollectionButton.disabled = false 
@@ -72,7 +76,6 @@ submitUserEmailButton.addEventListener(
             //display user name
             const userId = document.querySelector('p#current-user-identifier')        
             userId.textContent = currentUser.email
-            setTimeout(()=> userId.computedStyleMap.color = 'black', 1000)
             //clear input field
             document.querySelector('#user-email').value = ''
             //check if current user already exists in saved users
