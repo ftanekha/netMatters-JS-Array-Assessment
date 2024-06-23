@@ -19,7 +19,7 @@ div#main-container{
     }
     form{
         display: flex;
-        background-color: rgb(60,52,31);
+        background-color: rgb(26,36,33);
         input{
             padding: 30px 20px; 
             background-color: rgb(26,36,33);
@@ -37,6 +37,7 @@ div#main-container{
     }
     div#current-image-container{
         height: 300px;
+        padding: 0 !important;
         img{
             pointer-events: none;
             max-height: 300px;

@@ -27,7 +27,7 @@ div#main-container * {
 }
 div#main-container form {
   display: flex;
-  background-color: rgb(60, 52, 31);
+  background-color: rgb(26, 36, 33);
 }
 div#main-container form input {
   padding: 30px 20px;
@@ -45,6 +45,7 @@ div#main-container form button {
 }
 div#main-container div#current-image-container {
   height: 300px;
+  padding: 0 !important;
 }
 div#main-container div#current-image-container img {
   pointer-events: none;
