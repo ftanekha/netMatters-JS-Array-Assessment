@@ -92,7 +92,7 @@ submitUserEmailButton.addEventListener(
                 currentUser.imageCollection = [];
                 (
                     //display new user's collection (empty at first)
-                    ()=> {
+                    ()=> {//only display when image array contains at least one image
                         if(currentUser.imageCollection.length) return displayUserNewCollection(currentUser)
                         return 
                     }
