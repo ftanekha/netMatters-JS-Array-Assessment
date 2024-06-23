@@ -34,7 +34,8 @@ let currentUser = {
 //submit, validate and (if valid) store user email
 submitUserEmailButton.addEventListener(
     'click',
-    ()=> {
+    (ev)=> {
+        ev.preventDefault()
         //validate user email address
         if(!isUserEmailAddressValid(userEmail.value)){
             //disable/keep disabled the 'add image to collection button'
@@ -50,12 +51,14 @@ submitUserEmailButton.addEventListener(
                 "Your email address is the same as the current user's ! \nTo start or view another collection, enter a different email address."
             )
         }else{
+            //
+            submitUserEmailButton.textContent = '🔓'
             //enable the 'add image to collection button'
             if(addRandomImageToCollectionButton.disabled){
                 addRandomImageToCollectionButton.disabled = false 
             }
             //check there's no other user in the current session
-            if(currentUser.email){
+            if(currentUser.email && currentUser.imageCollection.length){
                 //there is another user (email address in session) already
                 //update the current user's collection in allUsers array
                 updateCurrentUserInfo(allUsers, currentUser)
@@ -67,7 +70,9 @@ submitUserEmailButton.addEventListener(
             //switch to new user
             currentUser.email = userEmail.value
             //display user name
-            document.querySelector('p#current-user-identifier').textContent = currentUser.email
+            const userId = document.querySelector('p#current-user-identifier')        
+            userId.textContent = currentUser.email
+            setTimeout(()=> userId.computedStyleMap.color = 'black', 1000)
             //clear input field
             document.querySelector('#user-email').value = ''
             //check if current user already exists in saved users
@@ -84,9 +89,14 @@ submitUserEmailButton.addEventListener(
             }else{
                 allUsers.push(currentUser)
                 //clear the user image collection array
-                currentUser.imageCollection = []
-                //display new user's collection (empty at first)
-                if(currentUser.imageCollection.length) displayUserNewCollection(currentUser)
+                currentUser.imageCollection = [];
+                (
+                    //display new user's collection (empty at first)
+                    ()=> {
+                        if(currentUser.imageCollection.length) return displayUserNewCollection(currentUser)
+                        return 
+                    }
+                )()
             }
         }
     }

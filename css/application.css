@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 html {
   overflow-x: hidden;
 }
@@ -10,7 +11,7 @@ html {
 
 body {
   background-color: azure;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 div#main-container {
@@ -26,6 +27,7 @@ div#main-container * {
 }
 div#main-container form {
   display: flex;
+  background-color: rgb(60, 52, 31);
 }
 div#main-container form input {
   padding: 30px 20px;
@@ -44,6 +46,7 @@ div#main-container div#current-image-container {
   height: 300px;
 }
 div#main-container div#current-image-container img {
+  pointer-events: none;
   max-height: 300px;
 }
 div#main-container button {
@@ -54,6 +57,8 @@ div#main-container button {
   outline: none;
   cursor: pointer;
   background-color: rgb(60, 52, 31);
+  color: #c88937;
+  font-weight: 600;
 }
 div#main-container button:hover {
   background-color: #5e5130;
@@ -81,9 +86,9 @@ div#main-container button#add-random-image-to-collection-button:disabled {
 p#current-user-identifier {
   width: 200px;
   margin: 0 auto 20px auto;
-  text-decoration: underline solid 2px;
   color: black;
   font-family: "Playwrite IT Moderna", cursive;
+  font-weight: 900;
 }
 
 div#current-user-image-collection-container {
@@ -98,7 +103,7 @@ div#current-user-image-collection-container {
 div#current-user-image-collection-container img {
   max-width: 60px;
   height: auto;
-  box-shadow: black 2px 2px 2px, azure 2px 2px 2px 2px;
+  box-shadow: rgb(51, 54, 69) 2px 2px 2px, azure 2px 2px 2px 2px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }

@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 html{overflow-x: hidden;}
 *{box-sizing: border-box; transition: .2s; color: azure;}
 body{
     background-color: azure;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 div#main-container{
     width: 300px;
@@ -10,12 +12,14 @@ div#main-container{
     display: flex;
     flex-direction: column;
     letter-spacing: 2;
+    
     *{
         width: 100%; 
         color: azure;
     }
     form{
         display: flex;
+        background-color: rgb(60,52,31);
         input{
             padding: 30px 20px; 
             background-color: rgb(26,36,33);
@@ -33,6 +37,7 @@ div#main-container{
     div#current-image-container{
         height: 300px;
         img{
+            pointer-events: none;
             max-height: 300px;
         }
     }
@@ -44,11 +49,12 @@ div#main-container{
         outline: none;
         cursor: pointer;
         background-color: rgb(60,52,31);
+        color: darken(burlywood, 20%);
+        font-weight: 600;
             &:hover{
                 background-color: lighten(rgb(60,52,31), 10%);
             }
         &#add-random-image-to-collection-button{
-            
             background-color: rgb(0,73,83);
             &:hover{
                 background-color: lighten(rgb(0,73,83), 10%);
@@ -70,9 +76,9 @@ div#main-container{
 p#current-user-identifier{
     width: 200px;
     margin: 0 auto 20px auto;
-    text-decoration: underline solid 2px;
-    color: black;
+    color: darken(rgb(51, 54, 69), 40%);
     font-family: "Playwrite IT Moderna", cursive;
+    font-weight: 900;
 }
 div#current-user-image-collection-container{
     width:80vw;
@@ -85,7 +91,7 @@ div#current-user-image-collection-container{
     img{
         max-width: 60px;
         height: auto;
-        box-shadow: black 2px 2px 2px,
+        box-shadow: rgb(51, 54, 69) 2px 2px 2px,
             azure 2px 2px 2px 2px;       
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
