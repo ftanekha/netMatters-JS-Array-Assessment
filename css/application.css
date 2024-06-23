@@ -87,7 +87,7 @@ div#main-container button#add-random-image-to-collection-button:disabled {
 }
 
 p#current-user-identifier {
-  width: 200px;
+  width: 300px;
   margin: 0 auto 20px auto;
   color: rgb(60, 52, 31);
   font-family: "Playwrite IT Moderna", cursive;
