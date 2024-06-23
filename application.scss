@@ -24,6 +24,7 @@ div#main-container{
             padding: 30px 20px; 
             background-color: rgb(26,36,33);
             border: none;
+            border-radius: 0 !important;
             outline: none;
             &:focus{
                 background-color: lighten(rgb(26,36,33), 10%);
@@ -45,8 +46,9 @@ div#main-container{
         width: 100%;
         padding: 10px;
         font-size: .8rem;
-        border: none;
-        outline: none;
+        margin: 0 !important;
+        border: none !important;
+        outline: none !important;
         cursor: pointer;
         background-color: rgb(60,52,31);
         color: darken(burlywood, 20%);
@@ -76,7 +78,7 @@ div#main-container{
 p#current-user-identifier{
     width: 200px;
     margin: 0 auto 20px auto;
-    color: darken(rgb(51, 54, 69), 40%);
+    color: rgb(60,52,31);
     font-family: "Playwrite IT Moderna", cursive;
     font-weight: 900;
 }

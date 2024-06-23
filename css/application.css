@@ -33,6 +33,7 @@ div#main-container form input {
   padding: 30px 20px;
   background-color: rgb(26, 36, 33);
   border: none;
+  border-radius: 0 !important;
   outline: none;
 }
 div#main-container form input:focus {
@@ -53,8 +54,9 @@ div#main-container button {
   width: 100%;
   padding: 10px;
   font-size: 0.8rem;
-  border: none;
-  outline: none;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
   cursor: pointer;
   background-color: rgb(60, 52, 31);
   color: #c88937;
@@ -86,7 +88,7 @@ div#main-container button#add-random-image-to-collection-button:disabled {
 p#current-user-identifier {
   width: 200px;
   margin: 0 auto 20px auto;
-  color: black;
+  color: rgb(60, 52, 31);
   font-family: "Playwrite IT Moderna", cursive;
   font-weight: 900;
 }
