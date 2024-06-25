@@ -27,9 +27,13 @@ let currentUser = {
 addRandomImageToCollectionButton.addEventListener(
     'click', () => {
         //add new image to user's collection
-        currentUser['imageCollection'].push(currentImage.src)
-        //display new image at the front of current user collection
-        currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(currentImage.src)))
+        if(!currentUser['imageCollection'].includes(currentImage.src)){
+            currentUser['imageCollection'].push(currentImage.src)
+            //display new image at the front of current user collection
+            currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(currentImage.src)))
+        }else{
+            alert('Image already in collection!')
+        }
     }
 )
 //submit, validate and (if valid) store user email
