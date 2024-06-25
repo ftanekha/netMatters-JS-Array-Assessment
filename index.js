@@ -54,6 +54,7 @@ submitUserEmailButton.addEventListener(
             if (currentUser.email) {
                 if (currentUser.imageCollection.length > 0) {
                     clearCurrentUserCollectionDisplay()
+                    const existingUserEmails = existingUsers.map(user => user.email)
                     if (existingUserEmails.includes(currentUser.email)) {
                         //find user in existingUsers
                         const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)

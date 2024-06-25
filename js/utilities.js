@@ -44,7 +44,6 @@ function displayNewUserCollection(currentUser){
 
 function clearCurrentUserCollectionDisplay(){
     currentUserImageCollectionContainer.replaceChildren()
-    console.log('collection cleared')
 }
 
 export {
