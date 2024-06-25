@@ -56,7 +56,7 @@ submitUserEmailButton.addEventListener(
             addRandomImageToCollectionButton.disabled = false
             //check if there is a validated use already
             if (currentUser.email) {
-                if (currentUser.imageCollection.length > 0) {
+                if (currentUser.imageCollection.length) {
                     clearCurrentUserCollectionDisplay()
                     const existingUserEmails = existingUsers.map(user => user.email)
                     if (existingUserEmails.includes(currentUser.email)) {
@@ -83,7 +83,7 @@ submitUserEmailButton.addEventListener(
                 const currentUserIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
                 currentUser.imageCollection = existingUsers[currentUserIndexInExistingUsersArray].imageCollection
             }
-
+            document.querySelector('#current-user-identifier').textContent = currentUser.email
             displayNewUserCollection(currentUser)
         }
     }
