@@ -7,23 +7,21 @@
     <title>FARAI TANEKHA: JS Array Assessment</title>
 </head>
 <body>
-    <!-- <div id="outer-container"> -->
-        <div id="main-container">
-            <form id="user-email-address" action="#">
-                <input id="user-email" type="email" title="input user's email address here" placeholder="enter user email"/>
-                <button id="submit-user-email-button" type="submit" title="submit user email address">🔒</button>
-            </form>
-            <div id="current-image-container">
-                <img id="current-image" src="https://fastly.picsum.photos/id/314/300/300.jpg?hmac=t3TWJyfgrprg3SfM_AwzKHLjUsysY_47HrDAsVKrw2Q" alt="random image" title="random image"/>
-            </div>
-            <div id="user-actions">
-                <button id="fetch-random-image-button" type="button" title="display random image">Display Random Image</button>
-                <button id="add-random-image-to-collection-button" type="button" title="add image to my collection" title="Collect image" disabled>😴</button>
-            </div>
+    <div id="main-container">
+        <form id="user-email-address" action="#">
+            <input id="user-email" type="email" title="input user's email address here" placeholder="enter user email"/>
+            <button id="submit-user-email-button" type="submit" title="submit user email address">Submit</button>
+        </form>
+        <div id="current-image-container">
+            <img id="current-image" src="https://fastly.picsum.photos/id/314/300/300.jpg?hmac=t3TWJyfgrprg3SfM_AwzKHLjUsysY_47HrDAsVKrw2Q" alt="random image" title="random image"/>
         </div>
-    <!-- </div> -->
+        <div id="user-actions">
+            <button id="fetch-random-image-button" type="button" title="display random image">Display</button>
+            <button id="add-random-image-to-collection-button" type="button" title="add image to my collection" title="Collect image" disabled>Collect</button>
+        </div>
+    </div>
     <p id="current-user-identifier"></p>
     <div id="current-user-image-collection-container"></div>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
