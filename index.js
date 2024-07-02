@@ -76,6 +76,8 @@ submitUserEmailButton.addEventListener(
                 email: userEmail.value,
                 imageCollection: []
             }
+            //clear input field
+            document.querySelector('#user-email').value = ''
             //check if new user exists in storage
             const existingUserEmails = existingUsers.map(user => user.email)
             if (existingUserEmails.includes(currentUser.email)) {
