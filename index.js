@@ -27,7 +27,7 @@ let currentUser = {
 addRandomImageToCollectionButton.addEventListener(
     'click', () => {
         //add new image to user's collection
-        if(!currentUser['imageCollection'].includes(currentImage.src)){
+        if (!currentUser['imageCollection'].includes(currentImage.src)){
             currentUser['imageCollection'].push(currentImage.src)
             //display new image at the front of current user collection
             currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(currentImage.src)))
@@ -41,7 +41,10 @@ submitUserEmailButton.addEventListener(
     'click',
     () => {
         if (!isUserEmailAddressValid(userEmail.value)) {
-            addRandomImageToCollectionButton.disabled = true
+            //only disable image collection button if the current user isn't already validated
+            if(!currentUser.email){
+                addRandomImageToCollectionButton.disabled = true
+            }
             //clear input field
             document.querySelector('#user-email').value = ''
             return alert(

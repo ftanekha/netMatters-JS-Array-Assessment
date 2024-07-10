@@ -31,13 +31,11 @@ body div#main-container form {
 }
 body div#main-container form input {
   padding: 30px 20px;
-  background-color: rgb(26, 36, 33);
-  border: none;
+  background-color: #2f423c;
+  border: solid rgb(0, 73, 83) 1rem;
+  border-right: none;
   border-radius: 0 !important;
   outline: none;
-}
-body div#main-container form input:focus {
-  background-color: #2f423c;
 }
 body div#main-container form button {
   font-size: 0.8rem;
