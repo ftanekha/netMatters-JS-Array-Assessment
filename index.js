@@ -1,5 +1,5 @@
 import {
-    fetchRandomImage, isUserEmailAddressValid, createImage,
+    fetchRandomImage, isUserEmailAddressValid, createImage, createDropDownMenuOption,
     displayNewUserCollection, clearCurrentUserCollectionDisplay
 } from './js/utilities.js'
 
@@ -13,6 +13,10 @@ const fetchRandomImageButton = document.querySelector('#fetch-random-image-butto
 fetchRandomImageButton.addEventListener(
     'click', fetchRandomImage
 )
+
+//
+const currentSessionUsers = []
+//
 
 /*store all user info in local storage for persistance*/
 //check users exist in local storage
@@ -88,8 +92,32 @@ submitUserEmailButton.addEventListener(
                 const currentUserIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
                 currentUser.imageCollection = existingUsers[currentUserIndexInExistingUsersArray].imageCollection
             }
-            document.querySelector('#current-user-identifier').textContent = currentUser.email
+            if(!currentSessionUsers.includes(currentUser.email)){
+                createDropDownMenuOption(currentUser.email)
+                currentSessionUsers.push(currentUser.email)
+            }
             displayNewUserCollection(currentUser)
+            document.querySelector('#current-user-identifier').textContent = currentUser.email
+            const select = document.querySelector('select#current-user')
+            select.addEventListener(
+                'change',
+                (ev)=> {
+                    clearCurrentUserCollectionDisplay()
+
+                    currentUser.email = ev.target.value
+                    
+                    if(currentSessionUsers.includes(currentUser.email)){
+                        currentSessionUsers.push(currentUser.email)
+                    }
+
+                    if (existingUserEmails.includes(currentUser.email)) {
+                        const currentUserIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
+                        currentUser.imageCollection = existingUsers[currentUserIndexInExistingUsersArray].imageCollection
+                        displayNewUserCollection(currentUser)
+                        document.querySelector('#current-user-identifier').textContent = currentUser.email
+                    }
+                }
+            )
         }
     }
 )

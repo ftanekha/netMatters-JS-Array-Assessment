@@ -35,6 +35,18 @@ function createImage(src){
     return image
 }
 
+function createDropDownMenuOption(userEmail){
+    const option = document.createElement('option')
+    option.value = userEmail
+    option.textContent = userEmail
+    option.selected = 'selected'
+    //show user email address in drop down menu 
+    const select = document.querySelector('select#current-user')
+    select.insertAdjacentElement('afterbegin', option)
+    //display current user as top option
+    select.value = userEmail
+}
+
 function displayNewUserCollection(currentUser){
     //display user's collection
     currentUser['imageCollection'].forEach( imageSrc =>
@@ -47,6 +59,6 @@ function clearCurrentUserCollectionDisplay(){
 }
 
 export {
-    fetchRandomImage, isUserEmailAddressValid, createImage, 
+    fetchRandomImage, isUserEmailAddressValid, createImage, createDropDownMenuOption,
     displayNewUserCollection, clearCurrentUserCollectionDisplay
 }

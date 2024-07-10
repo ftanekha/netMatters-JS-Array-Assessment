@@ -5,6 +5,8 @@ html{overflow-x: hidden;}
 body{
     background-color: azure;
     font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
     div#main-container{
         width: 300px;
         margin: 50px auto;
@@ -74,9 +76,26 @@ body{
             }
         }
     }
+    select#current-user{
+        width: 300px;
+        height: 2rem;
+        margin: -20px auto 20px auto;
+        padding: 1rem 0;
+        background-color: rgb(60,52,31);
+        color: darken(burlywood, 20%);
+        border: solid rgb(0,73,83) .5rem ;
+        option{
+            color: darken(burlywood, 20%);
+            font-family: "Playwrite IT Moderna", cursive;
+            font-weight: 900;
+        }
+        @media (min-width: 576px){
+            width: 400px;
+        }
+    }
     p#current-user-identifier{
         width: 300px;
-        margin: 0 auto 20px auto;
+        margin: 10px auto;
         color: rgb(60,52,31);
         font-family: "Playwrite IT Moderna", cursive;
         font-weight: 900;
