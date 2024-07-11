@@ -7,13 +7,39 @@ body{
     font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
+    div.warning-message{
+        display: none;
+        width: 100%;
+        margin: auto;
+        padding: 10px 20px;
+        //bulma danger
+        background-color: hsl(348, 100%, 61%);
+        transition: 1s;
+        @media (min-width: 576px){
+            width: 500px;
+        }
+        p{
+            color: azure;
+            font-size: .8rem;
+            font-weight: 300;
+            letter-spacing: 1.2;
+            line-height: 1.25rem;
+            span.warning-lead-sentence{
+                display: inline-block;
+                margin-bottom: .5rem;
+                padding: 5px;
+                background-color: azure;
+                color: hsl(348, 100%, 61%);
+                font-weight: 600;
+            }
+        }
+    }
     div#main-container{
         width: 300px;
         margin: 30px auto;
         display: flex;
         flex-direction: column;
         letter-spacing: 2;
-        
         *{
             width: 100%; 
             color: azure;

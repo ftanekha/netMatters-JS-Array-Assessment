@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/favicons/favicon-rb-period.ico">
-    <link rel="stylesheet" href="css/application.css">
+    <link rel="stylesheet" type="text/css" href="css/application.css">
     <title>FARAI TANEKHA: JS Array Assessment</title>
 </head>
 <body>
+    <div id="generic-warning" class="warning-message">
+        <p>
+            <span class="warning-lead-sentence">The email address provided is invalid!</span><br>
+            A valid email address consists of an email prefix and an email domain, both in acceptable formats.<br>
+            The prefix appears to the left of the @ symbol.<br>
+            The domain appears to the right of the @ symbol.<br>
+            For example, in the address example@mail.com, "example" is the email prefix, and "mail.com" is the email domain.<br>
+        </p>
+    </div>
+    <div id="same-address-warning" class="warning-message">
+        <p>
+            <span class="warning-lead-sentence">The email address provided is already in session!</span><br>
+            To switch accounts, please provide a different email address.
+        </p>
+    </div>
     <div id="main-container">
         <form id="user-email-address" action="#">
             <input id="user-email" type="email" title="input user's email address here" placeholder="enter user email">

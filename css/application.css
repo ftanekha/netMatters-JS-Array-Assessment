@@ -15,6 +15,34 @@ body {
   display: flex;
   flex-direction: column;
 }
+body div.warning-message {
+  display: none;
+  width: 100%;
+  margin: auto;
+  padding: 10px 20px;
+  background-color: hsl(348, 100%, 61%);
+  transition: 1s;
+}
+@media (min-width: 576px) {
+  body div.warning-message {
+    width: 500px;
+  }
+}
+body div.warning-message p {
+  color: azure;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 1.2;
+  line-height: 1.25rem;
+}
+body div.warning-message p span.warning-lead-sentence {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 5px;
+  background-color: azure;
+  color: hsl(348, 100%, 61%);
+  font-weight: 600;
+}
 body div#main-container {
   width: 300px;
   margin: 30px auto;

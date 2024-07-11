@@ -1,5 +1,5 @@
 const currentUserImageCollectionContainer =  document.querySelector('#current-user-image-collection-container')
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function fetchRandomImage(){
     const randomImage = document.querySelector('img#current-image')
 
@@ -7,23 +7,46 @@ function fetchRandomImage(){
     .then(img => randomImage.src = img.url)
     .catch(err => console.error(err))
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function isUserEmailAddressValid(userEmailAddress){
     /*check that user email address:*/
     //comprises alphanumeric characters (dot excluded), and is 6 to 20 characters long (e.g. ghxnyab234)
     //followed by the @ symbol
     //followed by another series of alphanumeric characters, with a dot at the end (e.g. google.com or outlook.com)
-    const regex = /^[\w-\.]{6,30}@([\w-]+\.)+[\w-]{2,4}$/g
+    const regex = /^[\w-\.]{2,30}@([\w-]+\.)+[\w-]{2,10}$/g
     const result = regex.test(userEmailAddress)
     //returns a boolean value
     return result
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function displayWarning(msg){
+    const genericMessage = document.querySelector('div#generic-warning')
+    const sameAddressWarning = document.querySelector('div#same-address-warning')
+    if(!msg){
+        if(sameAddressWarning.style.display === 'block'){
+            sameAddressWarning.style.display = 'none'
+        }
+        genericMessage.style.display = 'block'
+    }else if(msg === 'same email address'){
+        if(genericMessage.style.display === 'block'){
+            genericMessage.style.display = 'none'
+        }
+        sameAddressWarning.style.display = 'block'
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function removeWarning(){
+    const warningMessages = document.querySelectorAll('div.warning-message')
+    warningMessages.forEach( msg => {
+        if(msg.style.display === 'block') msg.style.display = 'none'
+    })
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function displayImageInMainFrame(clickedImage){
     const imageCurrentlyDisplayed = document.querySelector('#current-image')
     imageCurrentlyDisplayed.src = clickedImage.src
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function createImage(src){
     const image = document.createElement('img')
     image.src = src
@@ -34,7 +57,7 @@ function createImage(src){
     )
     return image
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function createDropDownMenuOption(userEmail){
     const option = document.createElement('option')
     option.value = userEmail
@@ -46,19 +69,19 @@ function createDropDownMenuOption(userEmail){
     //display current user as top option
     select.value = userEmail
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function displayNewUserCollection(currentUser){
     //display user's collection
     currentUser['imageCollection'].forEach( imageSrc =>
         currentUserImageCollectionContainer.appendChild(createImage(imageSrc))
     )
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function clearCurrentUserCollectionDisplay(){
     currentUserImageCollectionContainer.replaceChildren()
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export {
-    fetchRandomImage, isUserEmailAddressValid, createImage, createDropDownMenuOption,
-    displayNewUserCollection, clearCurrentUserCollectionDisplay
+    fetchRandomImage, isUserEmailAddressValid,  displayWarning, removeWarning, createImage, 
+    createDropDownMenuOption, displayNewUserCollection, clearCurrentUserCollectionDisplay
 }
