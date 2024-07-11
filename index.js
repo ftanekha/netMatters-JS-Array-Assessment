@@ -111,7 +111,10 @@ submitUserEmailButton.addEventListener(
                         localStorage.setItem('allUsers', JSON.stringify(existingUsers))
                     }
                     //switch to new user image collection
-                    currentUser.email = ev.target.value
+                    if(currentUser.email !== ev.target.value){
+                        removeWarning()
+                        currentUser.email = ev.target.value
+                    }
                     //check that user email is not already listed in drop down menu
                     if (!currentSessionUsers.includes(currentUser.email)){
                         currentSessionUsers.push(currentUser.email)
