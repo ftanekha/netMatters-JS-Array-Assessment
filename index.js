@@ -113,8 +113,8 @@ submitUserEmailButton.addEventListener(
                     //switch to new user image collection
                     if(currentUser.email !== ev.target.value){
                         removeWarning()
-                        currentUser.email = ev.target.value
                     }
+                    currentUser.email = ev.target.value
                     //check that user email is not already listed in drop down menu
                     if (!currentSessionUsers.includes(currentUser.email)){
                         currentSessionUsers.push(currentUser.email)
