@@ -49,8 +49,6 @@ submitUserEmailButton.addEventListener(
             if(!currentUser.email){
                 addRandomImageToCollectionButton.disabled = true
             }
-            //clear input field
-            document.querySelector('#user-email').value = ''
             return alert(
                 `Invalid email address! Email address must be 6 - 30 characters long,
                 No meta-characters, such as ? - + #...`
@@ -93,8 +91,8 @@ submitUserEmailButton.addEventListener(
                 currentUser.imageCollection = existingUsers[currentUserIndexInExistingUsersArray].imageCollection
             }
             if(!currentSessionUsers.includes(currentUser.email)){
-                createDropDownMenuOption(currentUser.email)
                 currentSessionUsers.push(currentUser.email)
+                createDropDownMenuOption(currentUser.email)
             }
             displayNewUserCollection(currentUser)
             document.querySelector('#current-user-identifier').textContent = currentUser.email
@@ -102,20 +100,36 @@ submitUserEmailButton.addEventListener(
             select.addEventListener(
                 'change',
                 (ev)=> {
-                    clearCurrentUserCollectionDisplay()
-
+                    //persist current user image collection
+                    if (currentUser.imageCollection.length) {
+                        clearCurrentUserCollectionDisplay()
+                        const existingUserEmails = existingUsers.map(user => user.email)
+                        if (existingUserEmails.includes(currentUser.email)) {
+                            //find user in existingUsers
+                            const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
+                            //update current user image collection in existingUsers array
+                            existingUsers[userIndexInExistingUsersArray].imageCollection = currentUser.imageCollection
+                        } else {
+                            existingUsers.push(currentUser)
+                        }
+    
+                        localStorage.setItem('allUsers', JSON.stringify(existingUsers))
+                    }
+                    //switch to new user image collection
                     currentUser.email = ev.target.value
                     
-                    if(currentSessionUsers.includes(currentUser.email)){
+                    if(!currentSessionUsers.includes(currentUser.email)){
                         currentSessionUsers.push(currentUser.email)
+                        createDropDownMenuOption(currentUser.email)
                     }
 
                     if (existingUserEmails.includes(currentUser.email)) {
                         const currentUserIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
                         currentUser.imageCollection = existingUsers[currentUserIndexInExistingUsersArray].imageCollection
-                        displayNewUserCollection(currentUser)
-                        document.querySelector('#current-user-identifier').textContent = currentUser.email
+                        // displayNewUserCollection(currentUser)
                     }
+                    displayNewUserCollection(currentUser)
+                    document.querySelector('#current-user-identifier').textContent = currentUser.email
                 }
             )
         }

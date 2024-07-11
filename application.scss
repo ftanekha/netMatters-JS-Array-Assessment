@@ -9,7 +9,7 @@ body{
     flex-direction: column;
     div#main-container{
         width: 300px;
-        margin: 50px auto;
+        margin: 30px auto;
         display: flex;
         flex-direction: column;
         letter-spacing: 2;
@@ -23,7 +23,7 @@ body{
             background-color: rgb(26,36,33);
             padding: 0 !important;
             input{
-                padding: 30px 20px; 
+                padding: 20px; 
                 background-color: lighten(rgb(26,36,33), 10%);
                 border: solid rgb(0,73,83) 1rem ;
                 border-right: none;

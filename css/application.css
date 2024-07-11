@@ -17,7 +17,7 @@ body {
 }
 body div#main-container {
   width: 300px;
-  margin: 50px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
   letter-spacing: 2;
@@ -32,7 +32,7 @@ body div#main-container form {
   padding: 0 !important;
 }
 body div#main-container form input {
-  padding: 30px 20px;
+  padding: 20px;
   background-color: #2f423c;
   border: solid rgb(0, 73, 83) 1rem;
   border-right: none;
