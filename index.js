@@ -55,7 +55,7 @@ submitUserEmailButton.addEventListener(
         } else {
             removeWarning()
             addRandomImageToCollectionButton.disabled = false
-            //check if there is a validated use already
+            //check if there is a validated user already
             if (currentUser.email) {
                 if (currentUser.imageCollection.length) {
                     clearCurrentUserCollectionDisplay()
@@ -92,53 +92,26 @@ submitUserEmailButton.addEventListener(
             }
             displayNewUserCollection(currentUser)
             document.querySelector('#current-user-identifier').textContent = currentUser.email
-            const select = document.querySelector('select#current-user')
-            select.addEventListener(
-                'change',
-                (ev)=> {
-                    //persist current user image collection
-                    if (currentUser.imageCollection.length) {
-                        const existingUserEmails = existingUsers.map(user => user.email)
-                        if (existingUserEmails.includes(currentUser.email)) {
-                            //find user in existingUsers
-                            const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
-                            //update current user image collection in existingUsers array
-                            existingUsers[userIndexInExistingUsersArray].imageCollection = currentUser.imageCollection
-                        } else {
-                            existingUsers.push(currentUser)
-                        }
-    
-                        localStorage.setItem('allUsers', JSON.stringify(existingUsers))
-                    }
-                    //switch to new user image collection
-                    if(currentUser.email !== ev.target.value){
-                        removeWarning()
-                        clearCurrentUserCollectionDisplay()
-                    }
-                    currentUser.email = ev.target.value
-                    //check that user email is not already listed in drop down menu
-                    if (!currentSessionUsers.includes(currentUser.email)){
-                        currentSessionUsers.push(currentUser.email)
-                        createDropDownMenuOption(currentUser.email)
-                    }
-                    //check if user already has image collection
-                    if (existingUserEmails.includes(currentUser.email)) {
-                        //find user in existingUsers
-                        const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
-                        //update current user image collection in existingUsers array
-                        currentUser.imageCollection = existingUsers[userIndexInExistingUsersArray].imageCollection
-                    } 
-                    else {
-                        // existingUsers.push(currentUser)
-                        clearCurrentUserCollectionDisplay()
-                        displayNewUserCollection(currentUser)
-                    }
-                    //update the UI
-                    // clearCurrentUserCollectionDisplay()
-                    document.querySelector('#current-user-identifier').textContent = currentUser.email
-                    if (currentUser.imageCollection.length) displayNewUserCollection(currentUser)
-                }
-            )
+            
         }
+    }
+)
+const select = document.querySelector('select#current-user')
+select.addEventListener(
+    'change',
+    (ev)=> {
+        removeWarning()
+        clearCurrentUserCollectionDisplay()
+
+        currentUser.email = ev.target.value
+        const existingUserEmails = existingUsers.map(user => user.email)
+        if (existingUserEmails.includes(currentUser.email)) {
+            currentUser.imageCollection = existingUsers[existingUserEmails.indexOf(currentUser.email)].imageCollection 
+        }else{
+            currentUser.imageCollection = []
+        } 
+        if(currentUser.imageCollection.length) displayNewUserCollection(currentUser)
+
+        document.querySelector('#current-user-identifier').textContent = currentUser.email
     }
 )
