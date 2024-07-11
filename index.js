@@ -35,6 +35,17 @@ addRandomImageToCollectionButton.addEventListener(
             currentUser['imageCollection'].push(currentImage.src)
             //display new image at the front of current user collection
             currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(currentImage.src)))
+            const existingUserEmails = existingUsers.map(user => user.email)
+            if (existingUserEmails.includes(currentUser.email)) {
+                //find user in existingUsers
+                const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
+                //update current user image collection in existingUsers array
+                existingUsers[userIndexInExistingUsersArray].imageCollection = currentUser.imageCollection
+            } else {
+                existingUsers.push(currentUser)
+            }
+
+            localStorage.setItem('allUsers', JSON.stringify(existingUsers))
         }else{
             displayWarning('image already in collection')
         }
@@ -59,17 +70,6 @@ submitUserEmailButton.addEventListener(
             if (currentUser.email) {
                 if (currentUser.imageCollection.length) {
                     clearCurrentUserCollectionDisplay()
-                    const existingUserEmails = existingUsers.map(user => user.email)
-                    if (existingUserEmails.includes(currentUser.email)) {
-                        //find user in existingUsers
-                        const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
-                        //update current user image collection in existingUsers array
-                        existingUsers[userIndexInExistingUsersArray].imageCollection = currentUser.imageCollection
-                    } else {
-                        existingUsers.push(currentUser)
-                    }
-
-                    localStorage.setItem('allUsers', JSON.stringify(existingUsers))
                 }
             }
             //ENTER new user
@@ -99,11 +99,12 @@ const select = document.querySelector('select#current-user')
 select.addEventListener(
     'change',
     (ev)=> {
+        const existingUserEmails = existingUsers.map(user => user.email)
         removeWarning()
         clearCurrentUserCollectionDisplay()
 
-        currentUser.email = ev.target.value
-        const existingUserEmails = existingUsers.map(user => user.email)
+        currentUser = { email: ev.target.value }
+        
         if (existingUserEmails.includes(currentUser.email)) {
             currentUser.imageCollection = existingUsers[existingUserEmails.indexOf(currentUser.email)].imageCollection 
         }else{

@@ -121,9 +121,11 @@ body{
         color: darken(burlywood, 20%);
         border: solid rgb(0,73,83) .5rem ;
         option{
+            display: block;
             color: darken(burlywood, 20%);
-            font-family: "Playwrite IT Moderna", cursive;
-            font-weight: 900;
+            // font-family: "Playwrite IT Moderna", cursive;
+            font-weight: 400;
+            line-height: 1.25rem;
         }
         @media (min-width: 576px){
             width: 400px;
@@ -132,9 +134,8 @@ body{
     p#current-user-identifier{
         width: 300px;
         margin: 10px auto;
-        color: rgb(60,52,31);
-        font-family: "Playwrite IT Moderna", cursive;
-        font-weight: 900;
+        color: darken(rgb(60,52,31), 100%);
+        font-weight: 600;
         text-align: center;
     }
     div#current-user-image-collection-container{
