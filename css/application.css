@@ -19,9 +19,12 @@ body div.warning-message {
   display: none;
   width: 100%;
   margin: auto;
-  padding: 10px 20px;
+  padding: 10px;
   background-color: hsl(348, 100%, 61%);
   transition: 1s;
+}
+body div.warning-message#same-address-warning {
+  text-align: center;
 }
 @media (min-width: 576px) {
   body div.warning-message {
@@ -36,12 +39,19 @@ body div.warning-message p {
   line-height: 1.25rem;
 }
 body div.warning-message p span.warning-lead-sentence {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
   padding: 5px;
   background-color: azure;
   color: hsl(348, 100%, 61%);
   font-weight: 600;
+}
+body div.warning-message ul {
+  list-style-type: square;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
 }
 body div#main-container {
   width: 300px;

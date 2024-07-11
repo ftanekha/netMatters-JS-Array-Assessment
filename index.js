@@ -36,7 +36,7 @@ addRandomImageToCollectionButton.addEventListener(
             //display new image at the front of current user collection
             currentUserImageCollectionContainer.insertAdjacentElement('afterbegin', (createImage(currentImage.src)))
         }else{
-            alert('Image already in collection!')
+            displayWarning('image already in collection')
         }
     }
 )
@@ -113,6 +113,7 @@ submitUserEmailButton.addEventListener(
                     //switch to new user image collection
                     if(currentUser.email !== ev.target.value){
                         removeWarning()
+                        clearCurrentUserCollectionDisplay()
                     }
                     currentUser.email = ev.target.value
                     //check that user email is not already listed in drop down menu
@@ -126,11 +127,14 @@ submitUserEmailButton.addEventListener(
                         const userIndexInExistingUsersArray = existingUserEmails.indexOf(currentUser.email)
                         //update current user image collection in existingUsers array
                         currentUser.imageCollection = existingUsers[userIndexInExistingUsersArray].imageCollection
-                    } else {
-                        currentUser.imageCollection = []
+                    } 
+                    else {
+                        // existingUsers.push(currentUser)
+                        clearCurrentUserCollectionDisplay()
+                        displayNewUserCollection(currentUser)
                     }
                     //update the UI
-                    clearCurrentUserCollectionDisplay()
+                    // clearCurrentUserCollectionDisplay()
                     document.querySelector('#current-user-identifier').textContent = currentUser.email
                     if (currentUser.imageCollection.length) displayNewUserCollection(currentUser)
                 }

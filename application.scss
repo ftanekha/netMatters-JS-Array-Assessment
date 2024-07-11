@@ -11,10 +11,13 @@ body{
         display: none;
         width: 100%;
         margin: auto;
-        padding: 10px 20px;
+        padding: 10px;
         //bulma danger
         background-color: hsl(348, 100%, 61%);
         transition: 1s;
+        &#same-address-warning{
+            text-align: center;
+        }
         @media (min-width: 576px){
             width: 500px;
         }
@@ -25,13 +28,20 @@ body{
             letter-spacing: 1.2;
             line-height: 1.25rem;
             span.warning-lead-sentence{
-                display: inline-block;
-                margin-bottom: .5rem;
+                display: block;
+                width: 70%;
+                margin: 0 auto;
+                text-align: center;
                 padding: 5px;
                 background-color: azure;
                 color: hsl(348, 100%, 61%);
                 font-weight: 600;
             }
+        }
+        ul{
+            list-style-type: square;
+            font-size: .8rem;
+            line-height: 1.5rem;
         }
     }
     div#main-container{

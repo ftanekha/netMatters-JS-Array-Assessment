@@ -22,16 +22,23 @@ function isUserEmailAddressValid(userEmailAddress){
 function displayWarning(msg){
     const genericMessage = document.querySelector('div#generic-warning')
     const sameAddressWarning = document.querySelector('div#same-address-warning')
+    const imageAlreadyInCollection = document.querySelector('div#image-already-in-collection')
+    const warningMessages = document.querySelectorAll('div.warning-message')
     if(!msg){
-        if(sameAddressWarning.style.display === 'block'){
-            sameAddressWarning.style.display = 'none'
-        }
+        warningMessages.forEach( msg => {
+            if(msg.style.display === 'block') msg.style.display = 'none'
+        })
         genericMessage.style.display = 'block'
     }else if(msg === 'same email address'){
-        if(genericMessage.style.display === 'block'){
-            genericMessage.style.display = 'none'
-        }
+        warningMessages.forEach( msg => {
+            if(msg.style.display === 'block') msg.style.display = 'none'
+        })
         sameAddressWarning.style.display = 'block'
+    }else if(msg === 'image already in collection'){
+        warningMessages.forEach( msg => {
+            if(msg.style.display === 'block') msg.style.display = 'none'
+        })
+        imageAlreadyInCollection.style.display = 'block'
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
