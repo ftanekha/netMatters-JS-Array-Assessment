@@ -92,7 +92,6 @@ submitUserEmailButton.addEventListener(
             }
             displayNewUserCollection(currentUser)
             document.querySelector('#current-user-identifier').textContent = currentUser.email
-            
         }
     }
 )
