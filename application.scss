@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+$bulma-danger: hsl(348, 100%, 61%);
+
 html{overflow-x: hidden;}
 *{box-sizing: border-box; transition: .2s; color: azure;}
 body{
@@ -12,8 +14,7 @@ body{
         width: 100%;
         margin: auto;
         padding: 10px;
-        //bulma danger
-        background-color: hsl(348, 100%, 61%);
+        background-color: $bulma-danger;
         transition: 1s;
         &#same-address-warning{
             text-align: center;
@@ -34,7 +35,7 @@ body{
                 text-align: center;
                 padding: 5px;
                 background-color: azure;
-                color: hsl(348, 100%, 61%);
+                color: $bulma-danger;
                 font-weight: 600;
             }
         }
@@ -73,6 +74,7 @@ body{
         }
         div#current-image-container{
             height: 300px;
+            transition: .5s;
             img{
                 pointer-events: none;
                 max-height: 300px;
@@ -123,7 +125,6 @@ body{
         option{
             display: block;
             color: darken(burlywood, 20%);
-            // font-family: "Playwrite IT Moderna", cursive;
             font-weight: 400;
             line-height: 1.25rem;
         }

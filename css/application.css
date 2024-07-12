@@ -83,6 +83,7 @@ body div#main-container form button {
 }
 body div#main-container div#current-image-container {
   height: 300px;
+  transition: 0.5s;
 }
 body div#main-container div#current-image-container img {
   pointer-events: none;

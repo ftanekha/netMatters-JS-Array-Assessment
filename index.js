@@ -30,6 +30,7 @@ let currentUser = {
 //
 addRandomImageToCollectionButton.addEventListener(
     'click', () => {
+        removeWarning()
         //add new image to user's collection
         if (!currentUser['imageCollection'].includes(currentImage.src)){
             currentUser['imageCollection'].push(currentImage.src)

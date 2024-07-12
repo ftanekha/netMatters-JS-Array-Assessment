@@ -60,7 +60,10 @@ function createImage(src){
     image.alt = 'random image'
     image.classList += image.alt
     image.addEventListener(
-        'click', ({target})=> displayImageInMainFrame(target)
+        'click', ({target})=> {
+            displayImageInMainFrame(target)
+            removeWarning()
+        }
     )
     return image
 }
