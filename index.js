@@ -15,11 +15,9 @@ document.addEventListener(
         fetchRandomImageButton.addEventListener(
             'click', fetchRandomImage
         )
-
         //
         const currentSessionUsers = []
         //
-
         /*store all user info in local storage for persistance*/
         //check users exist in local storage
         const savedUsers = localStorage.getItem('allUsers')
@@ -93,16 +91,21 @@ document.addEventListener(
                         currentSessionUsers.push(currentUser.email)
                         createDropDownMenuOption(currentUser.email)
                     }
+
                     displayNewUserCollection(currentUser)
+                    
                     document.querySelector('#current-user-identifier').textContent = currentUser.email
                 }
             }
         )
+
         const select = document.querySelector('select#current-user')
+
         select.addEventListener(
             'change',
             (ev)=> {
                 const existingUserEmails = existingUsers.map(user => user.email)
+
                 removeWarning()
                 clearCurrentUserCollectionDisplay()
 
@@ -113,6 +116,7 @@ document.addEventListener(
                 }else{
                     currentUser.imageCollection = []
                 } 
+
                 if(currentUser.imageCollection.length) displayNewUserCollection(currentUser)
 
                 document.querySelector('#current-user-identifier').textContent = currentUser.email
