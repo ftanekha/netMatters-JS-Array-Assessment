@@ -55,7 +55,9 @@ document.addEventListener(
         //submit, validate and (if valid) store user email
         submitUserEmailButton.addEventListener(
             'click',
-            () => {
+            (ev) => {
+                ev.preventDefault()
+                
                 if (!isUserEmailAddressValid(userEmail.value)) {
                     //only disable image collection button if the current user isn't already validated
                     if(!currentUser.email){
