@@ -11,6 +11,9 @@ document.addEventListener(
         const currentImage = document.querySelector('#current-image')
         const addRandomImageToCollectionButton = document.querySelector('#add-random-image-to-collection-button')
         const fetchRandomImageButton = document.querySelector('#fetch-random-image-button')
+        //select
+        const select = document.querySelector('select#current-user')
+        //
         //fetch random image button
         fetchRandomImageButton.addEventListener(
             'click', fetchRandomImage
@@ -80,6 +83,8 @@ document.addEventListener(
                         email: userEmail.value,
                         imageCollection: []
                     }
+                    //update select to current user
+                    select.value = currentUser.email
                     //clear input field
                     document.querySelector('#user-email').value = ''
                     //check if new user exists in storage
@@ -101,8 +106,7 @@ document.addEventListener(
             }
         )
 
-        const select = document.querySelector('select#current-user')
-
+        //select
         select.addEventListener(
             'change',
             (ev)=> {
