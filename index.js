@@ -11,6 +11,8 @@ document.addEventListener(
         const currentImage = document.querySelector('#current-image')
         const addRandomImageToCollectionButton = document.querySelector('#add-random-image-to-collection-button')
         const fetchRandomImageButton = document.querySelector('#fetch-random-image-button')
+
+        addRandomImageToCollectionButton.title = 'Enter valid email address to collect images'
         //select
         const select = document.querySelector('select#current-user')
         //
@@ -60,7 +62,6 @@ document.addEventListener(
             'click',
             (ev) => {
                 ev.preventDefault()
-                
                 if (!isUserEmailAddressValid(userEmail.value)) {
                     //only disable image collection button if the current user isn't already validated
                     if(!currentUser.email){
@@ -71,6 +72,7 @@ document.addEventListener(
                     return displayWarning('same email address')
                 } else {
                     removeWarning()
+                    addRandomImageToCollectionButton.title = 'Click to collect image'
                     addRandomImageToCollectionButton.disabled = false
                     //check if there is a validated user already
                     if (currentUser.email) {
